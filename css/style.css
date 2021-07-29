@@ -1,0 +1,316 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    overflow: visible;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+}
+
+/* img {
+    max-width: 100px;
+} */
+
+.mobile-container{
+    background-color: #fff;
+    box-shadow: 0 0 10px 2px #3333331a;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 400px;
+    
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+header input {
+    background-color: #eee;
+    border: none;
+    border-radius:  3px;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    color: rgb(96,169,255);
+    font-weight: 600;
+}
+
+header button {
+    background-color: transparent;
+    color: #aaa;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.fav-container {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(247,249,255);
+    border-top: 3px solid rgb(240,244,255);
+    border-bottom: 3px solid rgb(240,244,255);
+    margin-bottom: 1rem;
+}
+
+.fav-container h3{
+    margin: 0;
+}
+
+.fav-meals{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    overflow-x: scroll;
+    margin: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.fav-meals::-webkit-scrollbar{
+    height: 6px;
+    background-color: rgb(238,238,238);
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.fav-meals::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(107, 184, 6);
+}
+
+.fav-meals li{
+    width: 85px;
+    margin: 0 6px;
+    position: relative;
+}
+
+.fav-meals li .clear{
+    background-color: transparent;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    border: none;
+    opacity: 0;
+    
+}
+.fav-meals li .clear i{
+    color: rgb(230, 36, 2);
+    font-size: 18px;
+    text-shadow: 0 0 5px #fff;
+    cursor: pointer;
+}
+
+.fav-meals li img {
+    border: 2px solid #fff;
+    box-shadow: 0 0px 10px 2px #3333331a;
+    border-radius: 50%;
+    object-fit: contain;
+    height: 70px;
+    width: 70px;
+}
+.fav-meals li:hover .clear{
+    opacity: 1;
+}
+
+.fav-meals li span{
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow: hidden;
+    /* width: 75px;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+    
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+/* 
+.fav-meals li span:hover{
+    white-space: normal;
+    text-overflow: auto;
+} */
+
+.meal{
+    margin: 1.5rem;
+    border-radius: 3px;
+    box-shadow: 0 0px 10px 2px #3333331a;
+    overflow: hidden;
+}
+
+.meal-header{
+    position: relative;
+}
+.meal-header .random {
+    position: absolute;
+    top: 1rem;
+    background-color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: rgb(160,162,169);
+    font-weight: 800;
+}
+.meal-header img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.meal-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.meal-body h4 {
+    color: rgb(74,78,93);
+    font-weight: bolder;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+.meal-body .vote-heart {
+    color: rgb(216,216,216);
+    font-size: 22px;
+    cursor: pointer;
+    /* transform: translateY(-50%); */
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    border-radius: 10px;
+}
+
+.meal-body .vote-heart.active{
+    color: rgb(255, 51, 170);
+}
+
+.popup-container{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.popup-container.hidden {
+    display: none;
+}
+
+.popup{
+    position: relative;
+}
+.popup .close-popup{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 22px;
+    cursor: pointer;
+    color: rgb(54, 16, 9);
+}
+
+.meal-info{
+    background-color: #fff;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.meal-info h1 {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.meal-info__body {
+    display: flex;
+}
+
+
+.meal-info img {
+    max-width: 40%;
+    object-fit: contain;
+}
+
+.meal-info__body p {
+    max-width: 60%;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 0 8px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.meal-info__body p::-webkit-scrollbar{
+    width: 2px;
+    background-color: rgb(238,238,238);
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.meal-info__body p::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: rgb(107, 184, 6);
+}
+
+.meal-info ul {
+    list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 140px;
+    margin: 0 0 3px;
+}
+.meal-info ul::-webkit-scrollbar{
+    width: 2px;
+    background-color: rgb(238,238,238);
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.meal-info ul::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: rgb(72,45,9);
+}
+
+.meal-info h3 {
+    margin: 6px 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.meal-info ul li {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    width: 100%;
+    color: rgb(56, 36, 4);
+}
